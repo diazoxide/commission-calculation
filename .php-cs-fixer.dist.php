@@ -8,7 +8,7 @@ $finder = PhpCsFixer\Finder::create()
     ->in(['src'])
 ;
 
-return PhpCsFixer\Config::create()
+return (new \PhpCsFixer\Config)
     ->setRules([
         '@Symfony' => true,
         'no_alternative_syntax' => true,

@@ -1,11 +1,75 @@
-# Paysera Commission task skeleton
+# How to use
 
-Following steps:
-- don't forget to change `Paysera` namespace and package name in `composer.json`
- to your own, as `Paysera` keyword should not be used anywhere in your task;
-- `\Paysera\CommissionTask\Service\Math` is an example class provided for the skeleton and could or could not be used by your preference;
-- needed scripts could be found inside `composer.json`;
-- before submitting the task make sure that all the scripts pass (`composer run test` in particular);
-- this file should be updated before submitting the task with the documentation on how to run your program.
+## Simple usage example
 
-Good luck! :) 
+Calculate CSV provided transactions fees.
+
+```shell
+php cli.php ./tests/fixtures/transactions_1.csv
+```
+
+# Classes
+
+### App:class
+
+Responsible for CLI application
+
+Main *Singleton* instance and container for whole application.
+
+**Example**
+
+```php
+use Paysera\CommissionTask\App;
+
+App::getInstance()->run();
+```
+
+### TransactionsRepository:class
+
+Can be replaced with production repository that implementing `TransactionRepositoryInterface::class`
+
+**Example**
+
+```php
+use Paysera\CommissionTask\entities\Transaction;
+use Paysera\CommissionTask\repositories\TransactionsRepository;
+
+$repository = new TransactionsRepository();
+$repository->addTransaction(new Transaction());
+
+var_dump($repository->getTransactions());
+```
+
+### FeeCalculator::class
+
+Constructor required `$transactionsRepository` to use user previous transactions on calculation.
+
+**Example**
+
+```php
+use Paysera\CommissionTask\repositories\TransactionsRepository;
+
+/**
+ * @var TransactionsRepository $transactionsRepository
+ * */
+$calculator = new \Paysera\CommissionTask\services\FeeCalculator($transactionsRepository);
+
+foreach($transactionsRepository->getTransactions() as $transaction){
+    $fee = $calculator->calculateFee($transaction);
+    
+    echo $fee.PHP_EOL;
+}
+
+```
+
+### AmountFormatter:class
+
+Helper class with static method format. Intended for formatting `amount` float values.
+
+**Example**
+
+```php
+
+echo \Paysera\CommissionTask\helpers\AmountFormatter::format(1891.151);
+
+```

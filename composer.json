@@ -1,5 +1,5 @@
 {
-    "name": "paysera/commission-task-skeleton",
+    "name": "paysera/commission-calculation",
     "description": "Skeleton for Paysera recruitment task",
     "keywords": [],
     "type": "project",
@@ -14,12 +14,11 @@
         }
     },
     "require": {
-        "php": ">=7.0",
-        "ext-bcmath": "*"
+        "php": ">=8.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.5",
-        "friendsofphp/php-cs-fixer": "2.16"
+        "phpunit/phpunit": "*",
+        "friendsofphp/php-cs-fixer": "*"
     },
     "config": {
         "sort-packages": true,
