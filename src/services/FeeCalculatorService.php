@@ -9,7 +9,7 @@ use Paysera\CommissionTask\entities\Transaction;
 use Paysera\CommissionTask\repositories\TransactionsRepository;
 use Paysera\CommissionTask\services\currency\interfaces\RatesServiceInterface;
 
-class FeeCalculator
+class FeeCalculatorService
 {
     private TransactionsRepository $transactions;
 

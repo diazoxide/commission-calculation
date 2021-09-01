@@ -8,7 +8,7 @@ use Paysera\CommissionTask\helpers\AmountFormatter;
 use Paysera\CommissionTask\repositories\TransactionsRepository;
 use Paysera\CommissionTask\services\currency\interfaces\RatesServiceInterface;
 use Paysera\CommissionTask\services\currency\RatesService;
-use Paysera\CommissionTask\services\FeeCalculator;
+use Paysera\CommissionTask\services\FeeCalculatorService;
 use Paysera\CommissionTask\Tests\RatesProviderMock;
 use PHPUnit\Framework\TestCase;
 
@@ -16,14 +16,14 @@ class FeeCalculatorTest extends TestCase
 {
 
     private TransactionsRepository $transactions;
-    private FeeCalculator $calculator;
+    private FeeCalculatorService $calculator;
 
     protected function setUp(): void
     {
         $this->transactions     = new TransactionsRepository();
 
         $rates_service          = new RatesService(new RatesProviderMock());
-        $this->calculator       = new FeeCalculator($this->transactions, $rates_service);
+        $this->calculator       = new FeeCalculatorService($this->transactions, $rates_service);
 
         $transactions_to_import = json_decode(file_get_contents(__DIR__ . '/../fixtures/transactions.json'));
 

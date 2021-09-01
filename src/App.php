@@ -13,7 +13,7 @@ use Paysera\CommissionTask\repositories\TransactionsRepository;
 use Paysera\CommissionTask\services\currency\interfaces\RatesServiceInterface;
 use Paysera\CommissionTask\services\currency\providers\ExchangeRatesApi;
 use Paysera\CommissionTask\services\currency\RatesService;
-use Paysera\CommissionTask\services\FeeCalculator;
+use Paysera\CommissionTask\services\FeeCalculatorService;
 use RuntimeException;
 
 class App
@@ -22,7 +22,7 @@ class App
 
     private TransactionsRepositoryInterface $transactions;
 
-    private FeeCalculator $fee_calculator;
+    private FeeCalculatorService $fee_calculator;
 
     private RatesServiceInterface $rates_service;
 
@@ -48,7 +48,7 @@ class App
         $rates_service_provider = new ExchangeRatesApi('6b88fdec20e4da789caa81208eee666a', true);
         $this->rates_service    = new RatesService($rates_service_provider);
         $this->transactions     = new TransactionsRepository();
-        $this->fee_calculator   = new FeeCalculator($this->transactions, $this->rates_service);
+        $this->fee_calculator   = new FeeCalculatorService($this->transactions, $this->rates_service);
     }
 
     /**
@@ -124,9 +124,9 @@ class App
     }
 
     /**
-     * @return FeeCalculator
+     * @return FeeCalculatorService
      */
-    public function getFeeCalculator(): FeeCalculator
+    public function getFeeCalculator(): FeeCalculatorService
     {
         return $this->fee_calculator;
     }

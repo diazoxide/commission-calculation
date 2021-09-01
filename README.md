@@ -52,7 +52,7 @@ use Paysera\CommissionTask\repositories\TransactionsRepository;
 /**
  * @var TransactionsRepository $transactionsRepository
  * */
-$calculator = new \Paysera\CommissionTask\services\FeeCalculator($transactionsRepository);
+$calculator = new \Paysera\CommissionTask\services\FeeCalculatorService($transactionsRepository);
 
 foreach($transactionsRepository->getTransactions() as $transaction){
     $fee = $calculator->calculateFee($transaction);
@@ -72,4 +72,12 @@ Helper class with static method format. Intended for formatting `amount` float v
 
 echo \Paysera\CommissionTask\helpers\AmountFormatter::format(1891.151);
 
+```
+
+# Tests
+
+Command to run PHPUnit tests
+
+```bash
+composer run-script phpunit
 ```
