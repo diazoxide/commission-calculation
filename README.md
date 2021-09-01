@@ -5,7 +5,7 @@
 Calculate CSV provided transactions fees.
 
 ```shell
-php cli.php ./tests/fixtures/transactions_1.csv
+php cli.php ./tests/fixtures/transactions.csv
 ```
 
 # Classes

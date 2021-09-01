@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Paysera\CommissionTask\Tests;
 
+use Exception;
 use Paysera\CommissionTask\App;
 use PHPUnit\Framework\TestCase;
 
@@ -14,9 +15,16 @@ class AppTest extends TestCase
     public function setUp(): void
     {
         $this->app = App::getInstance();
+
+        $this->app->getRatesService()->setProvider(
+            new RatesProviderMock()
+        );
     }
 
-    public function testRunShouldFailWhenCsvFileNotFound()
+    /**
+     * @throws Exception
+     */
+    public function testRunShouldFailWhenCsvFileNotFound(): void
     {
         global $argv;
         $argv[1] = __DIR__ . '/fixtures/wrong_transactions.csv';
@@ -25,7 +33,10 @@ class AppTest extends TestCase
         $this->app->run();
     }
 
-    public function testRunShouldFailWhenFileArgumentNotProvided()
+    /**
+     * @throws Exception
+     */
+    public function testRunShouldFailWhenFileArgumentNotProvided(): void
     {
         global $argv;
         unset($argv[1]);
@@ -34,14 +45,17 @@ class AppTest extends TestCase
         $this->app->run();
     }
 
-    public function testSuccessfulRun()
+    /**
+     * @throws Exception
+     */
+    public function testSuccessfulRun():void
     {
         global $argv;
         unset($argv[1]);
-        $argv[1] = __DIR__ . '/fixtures/transactions_1.csv';
+        $argv[1] = __DIR__ . '/fixtures/transactions.csv';
         $this->setOutputCallback(
             function ($output) {
-                $this->assertEquals($output,file_get_contents(__DIR__ . '/fixtures/app_output.txt'));
+                $this->assertEquals($output, file_get_contents(__DIR__ . '/fixtures/app_output.txt'));
             }
         );
         $success = $this->app->run();

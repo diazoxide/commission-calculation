@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Paysera\CommissionTask\repositories;
+namespace Paysera\CommissionTask\repositories\interfaces;
 
 use Paysera\CommissionTask\entities\Transaction;
 

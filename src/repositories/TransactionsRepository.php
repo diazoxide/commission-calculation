@@ -6,6 +6,7 @@ namespace Paysera\CommissionTask\repositories;
 
 use JetBrains\PhpStorm\Pure;
 use Paysera\CommissionTask\entities\Transaction;
+use Paysera\CommissionTask\repositories\interfaces\TransactionsRepositoryInterface;
 
 class TransactionsRepository implements TransactionsRepositoryInterface
 {
@@ -23,6 +24,8 @@ class TransactionsRepository implements TransactionsRepositoryInterface
     }
 
     /**
+     * @param  Transaction  $transaction
+     *
      * @return TransactionsRepository
      */
     public function addTransaction(Transaction $transaction): static
@@ -33,20 +36,21 @@ class TransactionsRepository implements TransactionsRepositoryInterface
     }
 
     /**
-     * @param int $user_id
+     * @param  int  $user_id
      *
      * @return Transaction[]
      */
     #[Pure]
- public function getUserTransactions(int $user_id): array
- {
-     $result = [];
-     foreach ($this->transactions as $transaction) {
-         if ($transaction->getUserId() === $user_id) {
-             $result[] = $transaction;
-         }
-     }
+    public function getUserTransactions(
+        int $user_id
+    ): array {
+        $result = [];
+        foreach ($this->transactions as $transaction) {
+            if ($transaction->getUserId() === $user_id) {
+                $result[] = $transaction;
+            }
+        }
 
-     return $result;
- }
+        return $result;
+    }
 }
