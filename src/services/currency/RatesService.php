@@ -9,13 +9,10 @@ use Paysera\CommissionTask\services\currency\interfaces\RatesServiceInterface;
 
 class RatesService implements RatesServiceInterface
 {
-
     private ProviderInterface $provider;
 
     /**
      * RatesService constructor.
-     *
-     * @param  ProviderInterface  $provider
      */
     public function __construct(ProviderInterface $provider)
     {
@@ -23,8 +20,6 @@ class RatesService implements RatesServiceInterface
     }
 
     /**
-     * @param  ProviderInterface  $provider
-     *
      * @return $this
      */
     public function setProvider(ProviderInterface $provider): static
@@ -34,13 +29,6 @@ class RatesService implements RatesServiceInterface
         return $this;
     }
 
-    /**
-     * @param  float  $amount
-     * @param  string  $currency
-     * @param  string  $from
-     *
-     * @return float
-     */
     public function convert(float $amount, string $currency, string $from): float
     {
         $rate = $this->provider->getRate($currency, $from);

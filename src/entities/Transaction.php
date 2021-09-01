@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Paysera\CommissionTask\entities;
 
 use InvalidArgumentException;
-use JetBrains\PhpStorm\ArrayShape;
 
 class Transaction
 {
@@ -24,6 +23,7 @@ class Transaction
         self::CLIENT_BUSINESS => 'business',
         self::CLIENT_PRIVATE => 'private',
     ];
+
     private string $date;
     private int $user_id;
     private int $type;
@@ -32,27 +32,8 @@ class Transaction
     private string $currency;
 
     /**
-     * @return array
+     * @return $this
      */
-    #[ArrayShape(['date' => 'string',
-                  'user_id' => 'int',
-                  'type' => 'int',
-                  'client' => 'int',
-                  'amount' => 'float',
-                  'currency' => 'string',
-    ])]
- public function toArray(): array
- {
-     return [
-            'date' => $this->date,
-            'user_id' => $this->user_id,
-            'type' => $this->type,
-            'client' => $this->client,
-            'amount' => $this->amount,
-            'currency' => $this->currency,
-        ];
- }
-
     public function setDate(string $date): Transaction
     {
         $this->date = $date;
@@ -60,9 +41,12 @@ class Transaction
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function setClient(int $client): Transaction
     {
-        if (!in_array($client, [self::CLIENT_BUSINESS, self::CLIENT_PRIVATE], true)) {
+        if (!isset(self::ALL_CLIENTS[$client])) {
             throw new InvalidArgumentException(sprintf('Invalid transaction type {%d}.', $client));
         }
 
@@ -71,9 +55,12 @@ class Transaction
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function setType(int $type): Transaction
     {
-        if (!in_array($type, [self::TYPE_DEPOSIT, self::TYPE_WITHDRAW], true)) {
+        if (!isset(self::ALL_TYPES[$type])) {
             throw new InvalidArgumentException(sprintf('Invalid transaction type {%d}.', $type));
         }
 
@@ -82,6 +69,9 @@ class Transaction
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function setAmount(float $amount): Transaction
     {
         $this->amount = $amount;
@@ -89,6 +79,9 @@ class Transaction
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function setCurrency(string $currency): Transaction
     {
         $this->currency = $currency;
@@ -96,6 +89,9 @@ class Transaction
         return $this;
     }
 
+    /**
+     * @return $this
+     */
     public function setUserId(int $user_id): Transaction
     {
         $this->user_id = $user_id;
@@ -108,9 +104,6 @@ class Transaction
         return $this->date;
     }
 
-    /**
-     * @return string
-     */
     public function getClient(): int
     {
         return $this->client;
