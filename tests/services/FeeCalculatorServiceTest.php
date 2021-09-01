@@ -12,7 +12,7 @@ use Paysera\CommissionTask\services\FeeCalculatorService;
 use Paysera\CommissionTask\Tests\RatesProviderMock;
 use PHPUnit\Framework\TestCase;
 
-class FeeCalculatorTest extends TestCase
+class FeeCalculatorServiceTest extends TestCase
 {
 
     private TransactionsRepository $transactions;
