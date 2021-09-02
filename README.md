@@ -19,7 +19,7 @@ Main *Singleton* instance and container for whole application.
 **Example**
 
 ```php
-use Paysera\CommissionTask\App;
+use diazoxide\TransactionsFeeCalculator\App;
 
 App::getInstance()->run();
 ```
@@ -31,8 +31,8 @@ Can be replaced with production repository that implementing `TransactionReposit
 **Example**
 
 ```php
-use Paysera\CommissionTask\entities\Transaction;
-use Paysera\CommissionTask\repositories\TransactionsRepository;
+use diazoxide\TransactionsFeeCalculator\entities\Transaction;
+use diazoxide\TransactionsFeeCalculator\repositories\TransactionsRepository;
 
 $repository = new TransactionsRepository();
 $repository->addTransaction(new Transaction());
@@ -55,8 +55,8 @@ Supported providers
 **Example**
 
 ```php
-use Paysera\CommissionTask\services\currency\providers\ExchangeRatesApi;
-use Paysera\CommissionTask\services\currency\RatesService;
+use diazoxide\TransactionsFeeCalculator\services\currency\providers\ExchangeRatesApi;
+use diazoxide\TransactionsFeeCalculator\services\currency\RatesService;
 
 $provider = new ExchangeRatesApi('api_key',true);
 $service = new RatesService($provider);
@@ -71,9 +71,9 @@ Constructor required `$transactionsRepository` to use user previous transactions
 **Example**
 
 ```php
-use Paysera\CommissionTask\repositories\TransactionsRepository;
-use Paysera\CommissionTask\services\currency\RatesService;
-use Paysera\CommissionTask\services\FeeCalculatorService;
+use diazoxide\TransactionsFeeCalculator\repositories\TransactionsRepository;
+use diazoxide\TransactionsFeeCalculator\services\currency\RatesService;
+use diazoxide\TransactionsFeeCalculator\services\FeeCalculatorService;
 
 /**
  * @var TransactionsRepository $transactionsRepository
@@ -97,7 +97,7 @@ Helper class with static method format. Intended for formatting `amount` float v
 
 ```php
 
-echo \Paysera\CommissionTask\helpers\AmountFormatter::format(1891.151);
+echo \diazoxide\TransactionsFeeCalculator\helpers\AmountFormatter::format(1891.151);
 
 ```
 

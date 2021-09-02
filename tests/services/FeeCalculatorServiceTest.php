@@ -1,15 +1,15 @@
 <?php
 
-namespace Paysera\CommissionTask\Tests\services;
+namespace diazoxide\TransactionsFeeCalculator\Tests\services;
 
 use Exception;
-use Paysera\CommissionTask\entities\Transaction;
-use Paysera\CommissionTask\helpers\AmountFormatter;
-use Paysera\CommissionTask\repositories\TransactionsRepository;
-use Paysera\CommissionTask\services\currency\interfaces\RatesServiceInterface;
-use Paysera\CommissionTask\services\currency\RatesService;
-use Paysera\CommissionTask\services\FeeCalculatorService;
-use Paysera\CommissionTask\Tests\RatesProviderMock;
+use diazoxide\TransactionsFeeCalculator\entities\Transaction;
+use diazoxide\TransactionsFeeCalculator\helpers\AmountFormatter;
+use diazoxide\TransactionsFeeCalculator\repositories\TransactionsRepository;
+use diazoxide\TransactionsFeeCalculator\services\currency\interfaces\RatesServiceInterface;
+use diazoxide\TransactionsFeeCalculator\services\currency\RatesService;
+use diazoxide\TransactionsFeeCalculator\services\FeeCalculatorService;
+use diazoxide\TransactionsFeeCalculator\Tests\RatesProviderMock;
 use PHPUnit\Framework\TestCase;
 
 class FeeCalculatorServiceTest extends TestCase

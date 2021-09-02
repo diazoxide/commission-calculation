@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Paysera\CommissionTask\Tests;
+namespace diazoxide\TransactionsFeeCalculator\Tests;
 
 use Exception;
-use Paysera\CommissionTask\App;
+use diazoxide\TransactionsFeeCalculator\App;
 use PHPUnit\Framework\TestCase;
 
 class AppTest extends TestCase

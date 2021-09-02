@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Paysera\CommissionTask\services\currency;
+namespace diazoxide\TransactionsFeeCalculator\services\currency;
 
-use Paysera\CommissionTask\services\currency\interfaces\ProviderInterface;
-use Paysera\CommissionTask\services\currency\interfaces\RatesServiceInterface;
+use diazoxide\TransactionsFeeCalculator\services\currency\interfaces\ProviderInterface;
+use diazoxide\TransactionsFeeCalculator\services\currency\interfaces\RatesServiceInterface;
 
 class RatesService implements RatesServiceInterface
 {

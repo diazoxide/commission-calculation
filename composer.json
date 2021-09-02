@@ -1,16 +1,16 @@
 {
-    "name": "paysera/commission-calculation",
-    "description": "Skeleton for Paysera recruitment task",
+    "name": "diazoxide/transactions-fee-calculator",
+    "description": "Calculate money transaction fees with custom logic.",
     "keywords": [],
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Paysera\\CommissionTask\\": "src"
+            "diazoxide\\TransactionsFeeCalculator\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Paysera\\CommissionTask\\Tests\\": "tests"
+            "diazoxide\\TransactionsFeeCalculator\\Tests\\": "tests"
         }
     },
     "require": {

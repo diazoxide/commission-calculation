@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Paysera\CommissionTask\Tests;
+namespace diazoxide\TransactionsFeeCalculator\Tests;
 
 
-use Paysera\CommissionTask\services\currency\interfaces\ProviderInterface;
+use diazoxide\TransactionsFeeCalculator\services\currency\interfaces\ProviderInterface;
 
 class RatesProviderMock implements ProviderInterface
 {

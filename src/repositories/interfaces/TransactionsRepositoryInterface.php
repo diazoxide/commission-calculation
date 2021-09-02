@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Paysera\CommissionTask\repositories\interfaces;
+namespace diazoxide\TransactionsFeeCalculator\repositories\interfaces;
 
-use Paysera\CommissionTask\entities\Transaction;
+use diazoxide\TransactionsFeeCalculator\entities\Transaction;
 
 interface TransactionsRepositoryInterface
 {

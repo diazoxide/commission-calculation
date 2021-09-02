@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Paysera\CommissionTask\helpers;
+namespace diazoxide\TransactionsFeeCalculator\helpers;
 
 class AmountFormatter
 {

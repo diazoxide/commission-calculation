@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Paysera\CommissionTask\services\currency\interfaces;
+namespace diazoxide\TransactionsFeeCalculator\services\currency\interfaces;
 
 interface ProviderInterface
 {

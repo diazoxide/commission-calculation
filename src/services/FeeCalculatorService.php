@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Paysera\CommissionTask\services;
+namespace diazoxide\TransactionsFeeCalculator\services;
 
 use Exception;
-use Paysera\CommissionTask\entities\Transaction;
-use Paysera\CommissionTask\repositories\TransactionsRepository;
-use Paysera\CommissionTask\services\currency\interfaces\RatesServiceInterface;
+use diazoxide\TransactionsFeeCalculator\entities\Transaction;
+use diazoxide\TransactionsFeeCalculator\repositories\TransactionsRepository;
+use diazoxide\TransactionsFeeCalculator\services\currency\interfaces\RatesServiceInterface;
 
 class FeeCalculatorService
 {

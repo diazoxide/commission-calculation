@@ -1,9 +1,9 @@
 <?php
 
-namespace Paysera\CommissionTask\Tests\repositories;
+namespace diazoxide\TransactionsFeeCalculator\Tests\repositories;
 
-use Paysera\CommissionTask\entities\Transaction;
-use Paysera\CommissionTask\repositories\TransactionsRepository;
+use diazoxide\TransactionsFeeCalculator\entities\Transaction;
+use diazoxide\TransactionsFeeCalculator\repositories\TransactionsRepository;
 use PHPUnit\Framework\TestCase;
 
 class TransactionsRepositoryTest extends TestCase

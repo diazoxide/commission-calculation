@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Paysera\CommissionTask\services\currency\providers;
+namespace diazoxide\TransactionsFeeCalculator\services\currency\providers;
 
 use RuntimeException;
 use InvalidArgumentException;
-use Paysera\CommissionTask\services\currency\interfaces\ProviderInterface;
+use diazoxide\TransactionsFeeCalculator\services\currency\interfaces\ProviderInterface;
 
 class ExchangeRatesApi implements ProviderInterface
 {
